@@ -3,6 +3,7 @@ angular.module("appPokedex").controller("pokemonController", function($scope, po
     $scope.pokemon = {};
     $scope.showPokemons = true;
 
+
     $scope.loadData = () => {
         pokemonService.findAll().then((response) => {
             $scope.pokemons = response.data.results;
