@@ -1,0 +1,38 @@
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 13rem;
+    height: calc(100vh - 60px);
+    background-color: #f0f0f0;
+
+    transition: 300ms;
+}
+
+nav.hide {
+    width: 0;
+    overflow: hidden;
+}
+
+nav > div {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    font-weight: 500;
+
+    height: 45px;
+    width: 100%;
+    padding: 0 15px;
+
+    border-left: 4px solid transparent;
+
+    cursor: pointer;
+}
+
+nav > div.selected {
+    border-left: 4px solid #3265a0;
+    color: #3265a0;
+
+    background-color: #c9c9c9;
+
+}

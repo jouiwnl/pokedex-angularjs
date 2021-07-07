@@ -1,0 +1,31 @@
+<div class="app-container">
+    <header>
+        <div class="menu-toggle">
+            <a href="" ng-click="toggleMenu()" class="bf-menu--vertical__toggle">
+                <i class="fas fa-bars"></i>
+            </a> 
+
+            <div class="brand"></div>
+            
+            <div class="app-name">
+                <h1>Pokedex - teste</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav ng-class="{'hide': !mostrarMenu}" >
+            <div ng-repeat="menu in menus"
+                ng-class="{'selected': activeTab === menu.tab}"
+                ng-click="changeTab(menu.tab)"
+            >
+                <p>{{menu.name}}</p>
+            </div>
+        </nav>
+
+        <main ng-switch on="activeTab">
+            <pokemons-select ng-switch-when="pokemons"></pokemons-select>
+        </main>
+    </div>
+
+</div>

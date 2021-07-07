@@ -1,0 +1,52 @@
+header {
+    display: flex;
+    height: 40px;
+
+    justify-content: space-between;
+    align-items: center;
+
+
+    background-color: #142c48;
+    color: #fff;
+
+    position: relative;
+}
+
+.menu-toggle{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+}
+
+header a {
+    cursor: pointer;
+    text-decoration: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    color: white;
+}
+
+header a:hover {
+    color: gray;
+    transition: all 0.3s;
+}
+
+
+.app-name > h1{
+    padding-left: 10px;
+    font-size: 1.5rem;
+}
+
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-container main {
+    padding: 0 15px;
+
+    width: 100%;
+}
