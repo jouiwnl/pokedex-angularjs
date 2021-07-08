@@ -1,11 +1,13 @@
 <div class="parent">
     <div ng-if="showPokemons">
-        <div class="card mb-3" style="max-width: 200px; margin-top: 15px;" ng-repeat="pokemon in pokemons">
-            <div class="row g-0">
-                <div class="col-md-8">
-                    <div class="card-body" style="display:flex; justify-content: space-between;">
-                        <h5 class="card-title" style="padding-right: 15px;">{{pokemon.name}}</h5>
-                        <button class="edit-button" title="info pokemon" ng-click="infoPokemon(pokemon)" data-bs-toggle="modal" data-bs-target="#modal-info-pokemon"><i class="fas fa-pen"></i></button>
+        <div class="wrapper" style="display: flex;">
+            <div class="card mb-3" style="max-width: 200px; margin-top: 15px;" ng-repeat="pokemon in pokemons">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="card-body" style="display:flex; justify-content: space-between;">
+                            <h5 class="card-title" style="padding-right: 15px;">{{pokemon.name}}</h5>
+                            <button class="edit-button" title="info pokemon" ng-click="infoPokemon(pokemon)" data-bs-toggle="modal" data-bs-target="#modal-info-pokemon"><i class="fas fa-pen"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -20,7 +22,7 @@
                     <div class="container">
                             <div class="row" style="text-align: center;">    
                                 <div class="col-sm">
-                                    <img src={{pokemon.sprites.front_default}} alt="pokemon-photo" style="width: 200px"> 
+                                    <img src={{pokemon.sprites.other.dream_world.front_default}} alt="pokemon-photo" style="width: 200px"> 
                                 </div>
                             </div>
 
@@ -53,7 +55,7 @@
                             </table>
                     </div>    
                 </div>
-                <div class="modal-footer">
+                <div style="text-align: center; margin-top: 15px; margin-bottom: 15px;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
