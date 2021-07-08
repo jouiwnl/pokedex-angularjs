@@ -1,20 +1,28 @@
-angular.module("appPokedex").controller("appController", function($scope) {
+angular.module("appPokedex").controller("appController", function($scope, pokemonService) {
+    $scope.pokemons = [];
+    $scope.pokemon = {};
+    $scope.showPokemons = true;
 
-    $scope.mostrarMenu = false;
-    $scope.activeTab = "pokemons";
-
-    $scope.menus = [
-        {name: "pokemons", tab: "pokemons"},
-        {name: "teste", tab: "teste"}
-    ]
-    
-    $scope.changeTab = (tab) => {
-        $scope.activeTab = tab;
+    $scope.loadSingle = (nome) => {
+        pokemonService.findSingle(nome).then((response) => {
+            $scope.pokemon = response.data;
+            console.log($scope.pokemon)
+        }).catch(function(error){
+            alert(error.data.message)
+        });  
     }
 
-
-    $scope.toggleMenu = () => {
-        $scope.mostrarMenu = !$scope.mostrarMenu;
+    $scope.infoPokemon = (pokemon) => {
+        $scope.loadSingle(pokemon.name);
+        $scope.pokemon = pokemon;
     }
 
+    $scope.buscarPokemon = (nome) => {
+        var input = document.querySelector("#input-pokemon");
+        var pokemonName = input.value;
+        nome = pokemonName;
+
+        $scope.loadSingle(nome);
+    }
+   
 });

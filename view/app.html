@@ -1,31 +1,70 @@
 <div class="app-container">
-    <header>
-        <div class="menu-toggle">
-            <a href="" ng-click="toggleMenu()" class="bf-menu--vertical__toggle">
-                <i class="fas fa-bars"></i>
-            </a> 
 
-            <div class="brand"></div>
-            
-            <div class="app-name">
-                <h1>Pokedex - teste</h1>
-            </div>
+    <div class="wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" alt="pokeball-logo">
+
+        <h2 class="title-app">Pesquise um Pokemon na caixa abaixo</h2>
+        <div class="description-app">
+            Pesquise entre os <strong>151 Pokemons</strong> da primeira geração. 
         </div>
-    </header>
 
-    <div class="main-container">
-        <nav ng-class="{'hide': !mostrarMenu}" >
-            <div ng-repeat="menu in menus"
-                ng-class="{'selected': activeTab === menu.tab}"
-                ng-click="changeTab(menu.tab)"
-            >
-                <p>{{menu.name}}</p>
+        <div class="form-pesquisa">
+            <label class="search-label">
+                <span class="search-icon"><i class="fas fa-search"></i></span>
+                <input class="form-control" type="text" placeholder="Insira" id="input-pokemon"></input>
+            </label>
+            <div class="search-button">
+                <button type="button" class="btn btn-primary" ng-click="buscarPokemon(nome)" data-bs-toggle="modal" data-bs-target="#modal-info-pokemon">Buscar</button>
             </div>
-        </nav>
-
-        <main ng-switch on="activeTab">
-            <pokemons-select ng-switch-when="pokemons"></pokemons-select>
-        </main>
+        </div>  
     </div>
 
+    <!--MODAL INFO POKEMMON-->
+    <div class="modal fade" id="modal-info-pokemon" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                            <div class="row" style="text-align: center;">    
+                                <div class="col-sm">
+                                    <img src={{pokemon.sprites.other.dream_world.front_default}} alt="pokemon-photo" style="width: 200px"> 
+                                </div>
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Tipos</th>
+                                        <th>Altura</th>
+                                        <th>Peso</th>
+                                        <th>Habilidades</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{pokemon.name}}</td>
+                                        <td>
+                                            {{pokemon.types[0].type.name}} <br>
+                                            {{pokemon.types[1].type.name}} 
+                                        </td>
+                                        <td>{{pokemon.height}}</td>
+                                        <td>{{pokemon.weight}}</td>
+                                        <td>
+                                            {{pokemon.abilities[0].ability.name}} <br>
+                                            {{pokemon.abilities[1].ability.name}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                    </div>    
+                </div>
+                <div style="text-align: center; margin-top: 15px; margin-bottom: 15px;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>
