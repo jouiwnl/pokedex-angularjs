@@ -1,6 +1,6 @@
 <div class="main-wrapper">
 	<header>
-		<div class="title-name" style="color: white;">
+		<div class="title-name" style="color: gray;">
 			<h3>
 				Porcure um Pokemon por <strong>Nome</strong> ou <strong>ID</strong>
 			</h3>
@@ -139,7 +139,7 @@
 		<!-- Top screen -->
 		<div class="top-screen-container" ng-if="showPokemonInfo">
 			<div id="about-screen" class="right-panel-screen">
-			Altura: {{pokemon.height}}m Peso: {{pokemon.weight}}kg
+			Altura: {{pokemon.height * 0.3}}m Peso: {{pokemon.weight / 2 }}kg
 			</div>
 		</div>
 
@@ -235,6 +235,6 @@
 		</div>
 		</div>
 		</div>
-		<p style="text-align: center; padding-top: 18px; color: white;"><strong>Desenvolvido por João Henrique</strong></p>
+		<p style="text-align: center; padding-top: 18px; color: gray;"><strong>Desenvolvido por João Henrique</strong></p>
 	</body>
 </div>

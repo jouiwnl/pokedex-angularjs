@@ -53,14 +53,6 @@ angular.module("appPokedex").controller("appController", function($scope, pokemo
         var pokemonName = input.value;
         nome = pokemonName;
 
-        $scope.clickMe = function() {
-            $http.get('test.json')
-                .success(function(data) {
-                $scope.cars = data[0].cars;
-                
-            });
-        }
-
         $scope.loadSingle(nome);
 
         this.resetStats();
