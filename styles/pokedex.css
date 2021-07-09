@@ -57,7 +57,9 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    background-color: var(--secondary-bg-color);
+    background-image: url(/assets/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   .logo {
@@ -77,6 +79,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 15px;
   }
   
   /* poke-ball */
@@ -294,7 +297,6 @@
     background-color: var(--main-screen-bg-color);
     border: solid black 2px;
     border-radius: 5%;
-    background-image: url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -540,6 +542,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    animation: blink 1s;
+    animation-iteration-count: infinite;
   }
   
   /* square buttons grid */
@@ -561,6 +565,11 @@
     border: black 1.5px solid;
     background-color: var(--square-buttons-color);
     box-shadow: inset -2px -2px #3298cb;
+  }
+  
+  .blue-square:hover {
+    opacity: 0.6;
+    transition: all 0.3s ease;
   }
   
   /* center buttons */
