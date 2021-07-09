@@ -19,12 +19,16 @@ angular.module("appPokedex").controller("appController", function($scope, pokemo
     }
 
     $scope.loadSingle = (nome) => {
+        $scope.loading = true;
+        $scope.imagePokemon = false;
         pokemonService.findSingle(nome).then((response) => {
-            $scope.pokemon = response.data;
+            $scope.pokemon = response.data; 
+            $scope.imagePokemon = true;
+            $scope.loading = false;
             console.log($scope.pokemon)
         }).catch(function(error){
             alert("Pokemon não encontrado")
-        });  
+        }); 
     }
 
 
@@ -49,9 +53,19 @@ angular.module("appPokedex").controller("appController", function($scope, pokemo
         var pokemonName = input.value;
         nome = pokemonName;
 
+        $scope.clickMe = function() {
+            $http.get('test.json')
+                .success(function(data) {
+                $scope.cars = data[0].cars;
+                
+            });
+        }
+
         $scope.loadSingle(nome);
 
         this.resetStats();
+
+        input.value = "";
     }
 
     $scope.attackPokemon = () => {
