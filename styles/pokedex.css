@@ -57,7 +57,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    background-image: url(/assets/background.jpg);
+    background-image: url(assets/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -402,6 +402,11 @@
   .nav-buttons-container {
     display: grid;
     grid-template-columns: 27% 35% 38%;
+  }
+
+  .button-nav-wrapper > a:hover {
+    opacity: 0.7;
+    transition: all 0.3s ease;
   }
   
   .dots-container {

@@ -8,6 +8,16 @@ angular.module("appPokedex").controller("appController", function($scope, pokemo
     $scope.showPokemonDefense = false;
     $scope.showPokemonSpeed = false;
 
+    this.resetStats = () => {
+        $scope.showPokemonPhoto = true;
+        $scope.showPokemonAttack = false;
+        $scope.showPokemonHP = false;
+        $scope.showPokemonStrenght = false;
+        $scope.showPokemonDefense = false;
+        $scope.showPokemonSpeed = false;
+        $scope.showPokemonInfo = true; 
+    }
+
     $scope.loadSingle = (nome) => {
         pokemonService.findSingle(nome).then((response) => {
             $scope.pokemon = response.data;
@@ -17,6 +27,23 @@ angular.module("appPokedex").controller("appController", function($scope, pokemo
         });  
     }
 
+
+    $scope.nextPokemon = (pokemon) => {
+        let id = pokemon.id + 1;
+        $scope.loadSingle(id);
+        console.log(id);
+
+        this.resetStats();
+    }
+
+    $scope.previousPokemon = (pokemon) => {
+        let id = pokemon.id - 1;
+        $scope.loadSingle(id);
+        console.log(id);
+
+        this.resetStats();
+    }
+
     $scope.buscarPokemon = (nome) => {
         var input = document.querySelector("#input-pokemon");
         var pokemonName = input.value;
@@ -24,13 +51,7 @@ angular.module("appPokedex").controller("appController", function($scope, pokemo
 
         $scope.loadSingle(nome);
 
-        $scope.showPokemonPhoto = true;
-        $scope.showPokemonAttack = false;
-        $scope.showPokemonHP = false;
-        $scope.showPokemonStrenght = false;
-        $scope.showPokemonDefense = false;
-        $scope.showPokemonSpeed = false;
-        $scope.showPokemonInfo = true;
+        this.resetStats();
     }
 
     $scope.attackPokemon = () => {

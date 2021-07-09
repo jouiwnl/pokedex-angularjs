@@ -38,13 +38,13 @@
 			</div>
 			<div class="small-lights-container">
 				<div class="small-light red">
-				<div class="dot light-red"></div>
+					<div class="dot light-red"></div>
 				</div>
 				<div class="small-light yellow">
-				<div class="dot light-yellow"></div>
+					<div class="dot light-yellow"></div>
 				</div>
 				<div class="small-light green">
-				<div class="dot light-green"></div>
+					<div class="dot light-green"></div>
 				</div>
 			</div>
 			</div>
@@ -58,8 +58,8 @@
 			</div>
 			<div id="main-screen">
 				<!--foto do pokemon-->
-					<div class="pokemon-image" ng-if="showPokemonPhoto">
-						<img style="max-width: 100px; max-height: 100px;" src={{pokemon.sprites.other.dream_world.front_default}} alt="pokemon-photo" style="width: 200px"> 
+					<div class="pokemon-image" ng-if="showPokemonPhoto" style="text-align: center;">
+						<img style="max-width: 150px; max-height: 150px;" src={{pokemon.sprites.front_default}} alt="pokemon-photo" style="width: 200px"> 
 					</div>
 			</div>
 			<div class="bottom-screen-lights">
@@ -93,13 +93,16 @@
 				<span id="name-screen">{{pokemon.name}}</span>
 			</div>
 			<div class="right-nav-container">
-				<div class="nav-button">
-				<div class="nav-center-circle"></div>
-				<div class="nav-button-vertical"></div>
-				<div class="nav-button-horizontal">
-					<div class="border-top"></div>
-					<div class="border-bottom"></div>
-				</div>
+				<div class="button-nav-wrapper" style="width: 40px; display: flex; justify-content: space-between;">
+					
+					<a href="" style="max-height: 10px; text-decoration: none; color: white;" ng-click="previousPokemon(pokemon)">
+						<i class="fas fa-arrow-left"></i>
+					</a>
+					
+					<a href="" style="max-height: 10px; text-decoration: none; color: white;" ng-click="nextPokemon(pokemon)">
+						<i class="fas fa-arrow-right"></i>
+					</a>
+					
 				</div>
 				<div class="bottom-right-nav-container">
 				<div class="small-light red">
@@ -231,8 +234,9 @@
 		</div>
 		</div>
 		</div>
+		<p><strong>Desenvolvido por João Henrique</strong></p>
 	</body>
 	<footer style="text-align:center" class="footer-app">
-		<p><strong>Desenvolvido por João Henrique</strong></p>
+		
 	</footer>
 </div>
